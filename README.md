@@ -14,9 +14,16 @@ I downloaded [a Spring Boot guide application](https://spring.io/guides/gs/sprin
 
 ## 2 - Add in dependencies
 The example I worked with used REST, so I added the Jersey libraries to gradle.
+```
+compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.25.1'
+compile group: 'org.json', name: 'json', version: '20190722'
+compile 'org.glassfish.jersey.inject:jersey-hk2:2.28'
+compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.22'
+````
+See the context in the build.gradle file in the example-jersey folder.
 
 ## 3 - Add classes to capture responses
-Next I made some classes to map the responses. This produces a coupling between the endpoint and the code. I’m not sure if there is a way to make this more flexible, but as this is a quick-and-dirty demo, it will do.
+Next I made some classes to map the responses. This produces a coupling between the endpoint and the code. I’m not sure if there is a way to make this more flexible, but as this is a quick-and-dirty demo, it will do. The relevant classes are Quote and CatPic.
 
 ## 4 - Update the controller
 I then edited the HelloController class within the downloaded Spring Boot project, and wrote some quick code for downloading the APIs. This is a very long way from production quality, with no error management, but it does the job
